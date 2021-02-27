@@ -8,3 +8,8 @@ How to use request.js:
 4. List the sites you will follow.
 5. Write down the interval you need.
 6. Start the bot.
+
+Bot commands: 
+
+1. /r - start bot.
+2. /s - check bot.
