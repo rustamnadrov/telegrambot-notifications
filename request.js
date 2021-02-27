@@ -4,10 +4,14 @@ const bot = new TeleBot({
 });
 const request = require('request');
 
-servers = [
+// List of servers
+const servers = [
   'http://', 'http://',
   'http://localhost', 'http://'
 ];
+
+// Request interval h * min * sec * mm
+const interval = 1 * 5 * 60 * 1000;
 
 bot.on('/r', (msg) => {
   setInterval(() => {
@@ -15,13 +19,15 @@ bot.on('/r', (msg) => {
       request(servers[i], function (error, response, body) {
         if (body == undefined) {
           bot.sendMessage(msg.from.id,
+            // Notification text
             `Server ${servers[i]} is down. Need do something`);
         };
       })
     }
-  }, 1 * 5 * 1000);
+  }, interval);
 });
 
+// Bot check
 bot.on('/s', (msg) => {
   bot.sendMessage(msg.from.id,
     `I'm okey, don't worry`);
