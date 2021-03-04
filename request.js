@@ -9,7 +9,7 @@ const servers = [
   'http://', 'http://',
   'http://localhost', 'http://'
 ];
-// what you mean?dss
+
 // Request interval h * min * sec * mm
 const interval = 1 * 5 * 60 * 1000;
 
