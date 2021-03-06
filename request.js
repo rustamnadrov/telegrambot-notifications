@@ -1,4 +1,4 @@
-const TeleBot = require("telebot");
+const TeleBot = require("telebot");ds
 const bot = new TeleBot({
   token: "",
 });
