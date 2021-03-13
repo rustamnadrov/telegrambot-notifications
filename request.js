@@ -27,7 +27,6 @@ bot.on('/launch', (msg) => {
   }, interval)
 });
 
-// Bot check
 bot.on('/start', (msg) => {
   bot.sendMessage(msg.from.id,
     `Hello, ${msg.from.first_name}!
