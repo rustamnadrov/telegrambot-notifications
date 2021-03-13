@@ -11,9 +11,9 @@ const servers = [
 ];
 
 // Request interval h * min * sec * mm
-const interval = 1 * 5 * 60 * 1000;
+const interval = 1 * 1 * 5 * 1000;
 
-bot.on('/r', (msg) => {
+bot.on('/launch', (msg) => {
   setInterval(() => {
     for (let i = 0; i < servers.length; i++) {
       request(servers[i], function (error, response, body) {
@@ -28,9 +28,12 @@ bot.on('/r', (msg) => {
 });
 
 // Bot check
-bot.on('/s', (msg) => {
+bot.on('/start', (msg) => {
   bot.sendMessage(msg.from.id,
-    `I'm okey, don't worry`);
+    `Hello, ${msg.from.first_name}!
+1. Fill the array servers.
+2. Select interval.
+3. Press '/launch' to start checking sites`);
 });
 
 bot.start();
