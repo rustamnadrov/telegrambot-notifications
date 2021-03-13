@@ -20,11 +20,11 @@ bot.on('/launch', (msg) => {
         if (body == undefined) {
           bot.sendMessage(msg.from.id,
             // Notification text
-            `Server ${servers[i]} is down. Need do something`);
+            `Server ${servers[i]} is down. Need do something`)
         };
       })
-    }
-  }, interval);
+    };
+  }, interval)
 });
 
 // Bot check
@@ -33,7 +33,7 @@ bot.on('/start', (msg) => {
     `Hello, ${msg.from.first_name}!
 1. Fill the array servers.
 2. Select interval.
-3. Press '/launch' to start checking sites`);
+3. Press '/launch' to start checking sites`)
 });
 
 bot.start();
