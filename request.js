@@ -1,8 +1,9 @@
-const TeleBot = require("telebot")
-const bot = new TeleBot({
-  token: "",
-});
+const TelegramBot = require("node-telegram-bot-api");
 const request = require('request');
+
+// Specify your token
+const token = "";
+const bot = new TelegramBot(token, {polling: true});
 
 // List of servers
 const servers = [
@@ -13,7 +14,7 @@ const servers = [
 // Request interval h * min * sec * mm
 const interval = 1 * 1 * 5 * 1000;
 
-bot.on('/launch', (msg) => {
+bot.onText(/\/launch/, (msg) => {
   setInterval(() => {
     for (let i = 0; i < servers.length; i++) {
       request(servers[i], function (error, response, body) {
@@ -27,12 +28,10 @@ bot.on('/launch', (msg) => {
   }, interval)
 });
 
-bot.on('/start', (msg) => {
+bot.onText(/\/start/, (msg) => {
   bot.sendMessage(msg.from.id,
     `Hello, ${msg.from.first_name}!
 1. Fill the array servers.
 2. Select interval.
 3. Press '/launch' to start checking sites`)
 });
-
-bot.start();
